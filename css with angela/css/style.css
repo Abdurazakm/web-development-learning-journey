@@ -1,0 +1,93 @@
+/*--------------- selector tag-------------- */
+h1 {
+    color: red;
+    font-size: 200px;
+}
+.insructure {
+    color: #66bfbf;
+}
+
+img {
+    background-color: rgb(190, 176, 97);
+}
+p:hover {
+    font-size: 30px;
+    color: #66bfbf;
+}
+
+/*--------------- class tag-------------- */
+.quran {
+    height: 400px;
+    width: 400px;
+}
+.angela {
+    height: 300px;
+    width: 300px;;
+}
+
+#heading:hover{
+    font-style: oblique;
+    background-color: #8866bf;
+}
+
+.circular {
+    border-radius: 100%;
+}
+.red{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    position: relative;
+    /* left: 400px; */
+    display: inline-block;
+    /* bottom: 200px; */
+
+}
+.blue{
+    height: 200px;
+    width: 200px;
+    background-color: blue;
+    position: relative;
+    /* bottom: 200px; */
+    display: inline-block;
+
+}
+.yellow{
+    height: 200px;
+    width: 200px;
+    background-color: yellow;
+    position: relative;
+    /* left: 200px; */
+    display: inline-block;
+    /* bottom: 400px; */
+}
+.red1{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    position: absolute;
+    left: 400px;
+    top: 400px;
+
+ 
+
+}
+.blue1{
+    height: 200px;
+    width: 200px;
+    background-color: blue;
+    position: absolute;
+    left: 200px;
+    top: 200px; 
+    
+    
+
+}
+.yellow1{
+    height: 200px;
+    width: 200px;
+    background-color: yellow;
+    position: absolute;
+    
+   
+}

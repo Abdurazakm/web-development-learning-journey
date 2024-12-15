@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inputs</title>
+</head>
+<body>
+    <form action="" method="post">
+        <fieldset>
+        <legend>important info</legend>
+        <label for="name">Enter First Name: </label>
+        <input type="text">
+        <br>
+        <label for="name">Enter Middle Name: </label>
+        <input type="text">
+        <br>
+        <label for="name">Last name:</label>
+        <input type="text">
+        <br>
+        <label for="">Email</label>
+        <input type="email">
+        <br>
+        <label for="">Password</label>
+        <input type="password">
+        <br>
+        <label for="sex:">Sex</label>
+        <input type="text">
+        <br>
+        <label for="">Date of Birth</label>
+        <input type="date">
+        <br>
+        <label for="">attach file</label>
+        <input type="file">
+        <br>
+        <input type="range" name="range">
+        <br>
+        <h1>choose the tool that needed for to develop fronend web develop</h1>
+        <label>
+            <input type="checkbox" name="checkbox" value="c++">
+            c++
+        </label><br>
+        <label for="">
+            <input type="checkbox" name="fronend" value="html">
+            html
+        </label><br>
+        <label for="">
+            <input type="checkbox" value="css">
+            css
+        </label><br>
+        <label for="">
+            <input type="checkbox" name="fronend" value="python">
+            python
+        </label><br>
+        <label for="">
+            <input type="checkbox" name="fronend" value="javascript">
+            javascript
+        </label>
+        <br>
+         <h1>what would you liken among them</h1>
+        <label >
+            <input type="radio" name="choice" value="html">
+            html
+        </label><br>
+        <label>
+            <input type="radio" name="choice" value="css">
+            css
+        </label><br>
+        <label>
+            <input type="radio" name="choice" value="js">
+            js
+        </label><br>
+        <input type="datetime-local" name="" id="">
+        <br>
+        <input type="text"><br>
+        <input type="month" name="" id=""><br>
+        <label for="telephone">phone number</label>
+        <input type="tel"><br>
+        <label for="search">for search</label>
+        <input type="search" placeholder="search">
+        <select name="infosrc" id="" >
+            <option value="pyt">python</option>
+            <option value="c++">c++</option>
+            <option value="c#" selected>c#</option>
+            <option value="java">java</option>
+            <option value="sql">sql</option>
+        </select><br>
+        <label for="">optgroup</label>
+        <select name="infosrc" id="" >
+            <optgroup label="program">           
+                 <option value="pyt">python</option>
+                <option value="c++">c++</option>
+                <option value="c#" selected>c#</option>
+                <option value="java">java</option>
+                <option value="sql">sql</option>
+            </optgroup>
+            <optgroup label="program">           
+                <option value="pyt">python</option>
+               <option value="c++">c++</option>
+               <option value="c#" selected>c#</option>
+               <option value="java">java</option>
+               <option value="sql">sql</option>
+           </optgroup>
+
+        </select>
+           <label for="name">datalist</label>
+           <input type="text" list="dishtype">
+                <datalist id="dishtype">
+                    <option value="pyt">
+                    <option value="c++">
+                    <option value="c#">
+                    <option value="java">
+                    <option value="sql">
+
+                </datalist>
+                <label for="">spinnary control</label>
+                <input type="number" name="" id="" value="1" step="1" min="0" max="10">
+                <div>
+                    <label for="rangebox">slider control</label>
+                    <input type="range" id="rangebox" value="5" step="1" min="0" max="10">
+                </div>
+                <label for="commbox">tell us more about you</label>
+                <textarea name="" id="commbox"></textarea>
+
+
+        
+        <br>
+        <input type="submit">
+        <br> 
+        <input type="color">
+        </fieldset>
+        
+    </form>
+    <h1>output element</h1>
+    <form action="" oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+        <input type="range" name="a" id="a" value="50">+
+        <input type="number" name="b" id="b" value="10">=
+        <output name="result" for="a b">60</output><br>
+        Downloading:
+        <progress value="43" max="100">43%</progress>
+        <br><br>
+        <meter value="50" 
+                min="0" max="100"
+                low="33" high="66"
+                optimum="80">
+        </meter>
+        <input value="submit" type="submit" />
+        <input value="reset" type="reset" />
+        <input value="command" onclick="script" type="button" />
+        <button type="text"> content </button>
+
+
+
+    </form>
+    <h2>Form Buttons Example</h2>
+    <form action="submit_form.php" method="POST">
+        <!-- Input fields -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <!-- Command Button -->
+        <button type="button" onclick="alert('This is a command button!')">Command Button</button>
+        <br><br>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Button</button>
+        <br><br>
+
+        <!-- Reset Button -->
+        <button type="reset">Reset Button</button>
+        <br><br>
+
+        <!-- Custom Button -->
+        <button type="button" style="background-color: lightblue; color: white;" onclick="console.log('Custom action executed!')">
+            Custom Button
+        </button>
+    </form>
+</body>
+</html>
