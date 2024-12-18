@@ -1,0 +1,128 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #454242; /* Set to black */
+    background-size: cover;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Main Simon Container */
+.simon-container {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    background-color: #111;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7), 
+                inset 0 0 10px rgba(255, 255, 255, 0.2);
+    border: 5px solid #222;
+    overflow: hidden;
+}
+
+/* Colored Quadrants with 3D Effect */
+/* Quadrant Styling - Adds 3D Effect */
+.quadrant {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    border: 5px solid #222;
+    /* Adding shadow for 3D effect */
+    box-shadow: inset 0 8px 8px rgba(0, 0, 0, 0.5), /* Inner shadow */
+                0 8px 8px rgba(0, 0, 0, 0.6);      /* Outer shadow */
+}
+
+.red {
+    background: linear-gradient(to bottom right, #ff4d4d, #b71c1c);
+    top: 0;
+    left: 0;
+    border-top-left-radius: 100%;
+}
+
+.green {
+    background: linear-gradient(to bottom left, #66bb6a, #2e7d32);
+    top: 0;
+    right: 0;
+    border-top-right-radius: 100%;
+}
+
+.yellow {
+    background: linear-gradient(to top right, #ffee58, #fbc02d);
+    bottom: 0;
+    left: 0;
+    border-bottom-left-radius: 100%;
+}
+
+.blue {
+    background: linear-gradient(to top left, #42a5f5, #1976d2);
+    bottom: 0;
+    right: 0;
+    border-bottom-right-radius: 100%;
+}
+
+/* Hover Effect: Makes button "press in" for interactivity */
+.quadrant:hover {
+    box-shadow: inset 0 12px 12px rgba(0, 0, 0, 0.7), /* Deeper shadow */
+                0 4px 4px rgba(0, 0, 0, 0.5);        /* Reduced outer shadow */
+    transform: translateY(2px); /* Slight movement to mimic press */
+}
+
+/* Center Circle Styling - Adds Depth */
+.center-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px;
+    height: 130px;
+    background: radial-gradient(circle, #000 30%, #222);
+    border: 15px solid #2c2c2c;
+    border-radius: 50%;
+    box-shadow: inset 0 8px 8px rgba(0, 0, 0, 0.7), 
+                0 6px 6px rgba(0, 0, 0, 0.5); /* Depth for 3D look */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #00ffff;
+    text-align: center;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+}
+
+
+.center-circle h2 {
+    margin: 0;
+    color: #00ffea;
+    font-size: 2rem;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+}
+
+.score {
+    font-size: 1.2rem;
+    color: #aaa;
+}
+
+/* Neon Exit Text */
+.exit {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+}
+
+.pressed {
+    filter: brightness(1.5); /* Increase brightness to mimic flash */
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.6); /* Add glow effect */
+    transition: all 0.1s; /* Smooth animation */
+}
+
