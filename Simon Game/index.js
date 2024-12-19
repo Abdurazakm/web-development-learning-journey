@@ -11,7 +11,7 @@ $(".center-circle p").text("BEST " + bestScore);
 // Start the game on keypress
 $(document).on("keydown", function () {
     if (!started) {
-        $("h1").text("Simon Game"); // Reset the heading text
+        $(".simon-game").text("Simon Game"); // Reset the heading text
         nextSequence();
         started = true;
     }
@@ -41,10 +41,21 @@ function nextSequence() {
     var randomChosenColor = buttonColors[randomNumber];
     gamePattern.push(randomChosenColor);
 
-    // Flash the button
-    buttonAnimation(randomChosenColor);
-    playSound(randomChosenColor);
+    // Flash the buttons of the sequence one by one with a delay
+    let i = 0;
+
+    function flashNext() {
+        if (i < gamePattern.length) {
+            buttonAnimation(gamePattern[i]);
+            playSound(gamePattern[i]);
+            i++;
+            setTimeout(flashNext, 600); // Adjust timing for each flash
+        }
+    }
+
+    setTimeout(flashNext, 600); // Start flashing sequence after a short delay
 }
+
 
 // Check the player's answer
 function checkAnswer(currentLevel) {
@@ -65,7 +76,7 @@ function gameOver() {
         $("body").removeClass("game-over");
     }, 200);
 
-    $("h1").text("Game Over! Press Any Key to Restart");
+    $(".simon-game").text("Game Over! Press Any Key to Restart");
 
     // Update BEST score if the current level is higher
     if (level > bestScore) {
