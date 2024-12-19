@@ -4,109 +4,113 @@ var userClickedPattern = []; // Stores the player's input sequence
 var level = 0; // Current level (score)
 var bestScore = localStorage.getItem("bestScore") || 0; // Fetch the highest score from localStorage
 var started = false; // Track if the game has started
-
-// Update BEST score in the HTML when the page loads
-$(".center-circle p").text("BEST " + bestScore);
+var Restart = false;
 
 // Start the game on keypress
-$(".start-exit").on("click", function () {
-    if (!started) {
-        $(".start-exit").text("EXIT");
-        $(".simon-game").text("Simon Game"); // Reset the heading text
-        nextSequence();
-        started = true;
+$(".center-circle").on("click", function () {
+  if (!started) {
+    if (!Restart) {
+      $("p").before('<h2 class="score">0</h2>');
     }
+    // Update BEST score in the HTML when the page loads
+    $(".center-circle p").text("BEST " + bestScore);
+    $(".simon-game").text("Simon Game"); // Reset the heading text
+    nextSequence();
+    started = true;
+  }
 });
-
 
 // Handle player clicks
 $(".quadrant").on("click", function () {
-    var userChosenColor = $(this).attr("class").split(" ")[1]; // Extract color name (e.g., "red")
-    userClickedPattern.push(userChosenColor);
+  var userChosenColor = $(this).attr("class").split(" ")[1]; // Extract color name (e.g., "red")
+  userClickedPattern.push(userChosenColor);
 
-    playSound(userChosenColor); // Play sound
-    buttonAnimation(userChosenColor); // Flash the button
+  playSound(userChosenColor); // Play sound
+  buttonAnimation(userChosenColor); // Flash the button
 
-    checkAnswer(userClickedPattern.length - 1); // Check the player's input
+  checkAnswer(userClickedPattern.length - 1); // Check the player's input
 });
 
 // Generate the next random sequence
 function nextSequence() {
-    userClickedPattern = []; // Reset player's input
-    level++; // Increase the level (score)
+  userClickedPattern = []; // Reset player's input
+  level++; // Increase the level (score)
 
-    // Update score display
-    $(".score").text(level);
+  // Update score display
+  $(".score").text(level);
 
-    var randomNumber = Math.floor(Math.random() * 4);
-    var randomChosenColor = buttonColors[randomNumber];
-    gamePattern.push(randomChosenColor);
+  var randomNumber = Math.floor(Math.random() * 4);
+  var randomChosenColor = buttonColors[randomNumber];
+  gamePattern.push(randomChosenColor);
 
-    // Flash the buttons of the sequence one by one with a delay
-    let i = 0;
+  // Flash the buttons of the sequence one by one with a delay
+  let i = 0;
 
-    function flashNext() {
-        if (i < gamePattern.length) {
-            buttonAnimation(gamePattern[i]);
-            playSound(gamePattern[i]);
-            i++;
-            setTimeout(flashNext, 600); // Adjust timing for each flash
-        }
+  function flashNext() {
+    if (i < gamePattern.length) {
+      buttonAnimation(gamePattern[i]);
+      playSound(gamePattern[i]);
+      i++;
+      setTimeout(flashNext, 600); // Adjust timing for each flash
     }
+  }
 
-    setTimeout(flashNext, 600); // Start flashing sequence after a short delay
+  setTimeout(flashNext, 600); // Start flashing sequence after a short delay
 }
-
 
 // Check the player's answer
 function checkAnswer(currentLevel) {
-    if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
-        if (userClickedPattern.length === gamePattern.length) {
-            setTimeout(nextSequence, 1000); // Continue to next level
-        }
-    } else {
-        gameOver();
+  if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+    if (userClickedPattern.length === gamePattern.length) {
+      setTimeout(nextSequence, 1000); // Continue to next level
     }
+  } else {
+    gameOver();
+  }
 }
 
 // Handle Game Over
 function gameOver() {
-    playSound("wrong"); // Play wrong sound
-    $("body").addClass("game-over");
-    setTimeout(function () {
-        $("body").removeClass("game-over");
-    }, 200);
+  playSound("wrong"); // Play wrong sound
+  $("body").addClass("pressed");
+  setTimeout(function () {
+    $("body").removeClass("pressed");
+  }, 300);
 
-    $(".simon-game").text("Game Over! Press Any Key to Restart");
+  $(".simon-game").text("Game Over!");
+  currentScore = level;
+  $(".score").text(currentScore);
+  $(".center-circle p").text("RESTART");
+  Restart = true;
 
-    // Update BEST score if the current level is higher
-    if (level > bestScore) {
-        bestScore = level;
-        localStorage.setItem("bestScore", bestScore); // Save to localStorage
-        $(".center-circle p").text("BEST " + bestScore);
-    }
+  // Update BEST score if the current level is higher
+  if (level > bestScore) {
+    bestScore = level;
+    localStorage.setItem("bestScore", bestScore); // Save to localStorage
+    $(".center-circle p").text("BEST " + bestScore);
+  }
 
-    startOver(); // Restart the game
+  startOver(); // Restart the game
 }
 
 // Restart the game
 function startOver() {
-    level = 0;
-    gamePattern = [];
-    started = false;
-    $(".score").text(level); // Reset score display
+  level = 0;
+  gamePattern = [];
+  started = false;
+  // $(".score").text(level); // Reset score display
 }
 
 // Function to play sound
 function playSound(name) {
-    var audio = new Audio("sounds/" + name + ".mp3");
-    audio.play();
+  var audio = new Audio("sounds/" + name + ".mp3");
+  audio.play();
 }
 
 // Function for button animation
 function buttonAnimation(currentColor) {
-    $("." + currentColor).addClass("pressed");
-    setTimeout(function () {
-        $("." + currentColor).removeClass("pressed");
-    }, 100);
+  $("." + currentColor).addClass("pressed");
+  setTimeout(function () {
+    $("." + currentColor).removeClass("pressed");
+  }, 100);
 }
