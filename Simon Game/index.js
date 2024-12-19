@@ -9,8 +9,9 @@ var started = false; // Track if the game has started
 $(".center-circle p").text("BEST " + bestScore);
 
 // Start the game on keypress
-$(document).on("keydown", function () {
+$(".start-exit").on("click", function () {
     if (!started) {
+        $(".start-exit").text("EXIT");
         $(".simon-game").text("Simon Game"); // Reset the heading text
         nextSequence();
         started = true;
