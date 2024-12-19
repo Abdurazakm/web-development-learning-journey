@@ -1,14 +1,15 @@
 /* General Body Styling */
 body {
+    border: 8px rgb(109, 108, 108) solid ;
+    border-radius: 1%;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 96.5vh;
     background: #454242; /* Set to black */
     background-size: cover;
-    color: white;
     font-family: Arial, sans-serif;
     overflow: hidden;
 }
@@ -109,11 +110,8 @@ body {
 }
 
 /* Neon Exit Text */
-.start-exit {
-    position: absolute;
-    top: 5vmin; /* Responsive margin */
-    left: 5vmin; /* Responsive margin */
-    font-size: 3vw; /* Responsive font size */
+.simon-game {
+    font-size: 5vw; /* Responsive font size */
     color: #fff;
     text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
 }
@@ -145,10 +143,14 @@ body {
     .score {
         font-size: 1.8vw;
     }
-
-    .start-exit {
-        font-size: 1.8vw;
+    .simon-game{
+        display: flex;
+        font-size: 7vw;
+        text-align: center;
+        position: relative;
+        padding-bottom: 20%;
         top: 1vmin;
         left: 1vmin;
+
     }
 }
