@@ -1,11 +1,14 @@
 import React from "react";
 import Card from "./component/Card";
 import contacts from "./contacts";
+import Avater from "./component/Avater";
+import web from './assets/web.png';
 
 function App() {
   return (
     <div>
       <h1 className="heading">My contact</h1>
+      <Avater img={web}/>
       <Card
       name = {contacts[0].name}
       img = {contacts[0].imgsrc}
