@@ -1,0 +1,59 @@
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #a8c0c0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.heading {
+    font-size: 3rem;
+    background-color: #2ec4b6;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    display: inline-block;
+}
+
+.dictionary {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.term {
+    background-color: white;
+    padding: 1.5rem;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.term:hover {
+    transform: scale(1.05);
+}
+
+.emoji {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #20a9a4;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.description {
+    font-size: 1rem;
+    color: #333;
+}
