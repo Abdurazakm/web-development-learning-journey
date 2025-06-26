@@ -1,6 +1,6 @@
 import React from "react";
 
-function Entry(props) {
+const Entry = (props) => {
   return (
     <div className="term">
       <dt>
