@@ -1,27 +1,33 @@
-import React from "react";
-import Entry from "./component/Entry";
-import emojiDictionary from "./emojiDictionary";
+import React, { useState } from "react";
 
-function createEmoji(emojiDi) {
-  return (
-    <Entry
-      key={emojiDi.id}
-      emoji={emojiDi.emoji}
-      name={emojiDi.name}
-      meaning={emojiDi.meaning}
-    />
-  );
-}
+const App = () => {
+  const [header, setheader] = useState("Hello");
+  const [isMouseOver, setMouseOver] = useState(false);
+  const handleClick = () => {
+    setheader("Submitted");
+  };
 
-function App() {
+  const handleMouseOver = () => {
+    setMouseOver(true);
+  };
+  const handleMouseOut = ()=>{
+    setMouseOver(false)
+  }
   return (
     <div className="container">
-      <h1><span className="heading">emojipedia</span></h1>
-      <dl className="dictionary">
-        {emojiDictionary.map(createEmoji)}
-      </dl>
+      <h1>{header}</h1>
+      <input type="text" placeholder="What's your name?" />
+      <button
+        type="submit"
+        style={{ backgroundColor: isMouseOver ? "black" : "white" }} 
+        onClick={handleClick}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+      >
+        Submit
+      </button>
     </div>
   );
-}
+};
 
 export default App;
