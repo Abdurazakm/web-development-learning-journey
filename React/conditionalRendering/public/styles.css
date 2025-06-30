@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(19, 163, 156);
+}
+
+.container {
+    display: flex;
+    margin: 0;
+    height: 100vh; /* full height of the viewport */
+    justify-content: center;
+    align-items: center;
+    
+
+}
+h1{
+    color: white;
+}
+
+.form {
+    display: grid;
+}
+
+.form input {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: rgb(16, 180, 171);;
+}
+
+.form button {
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 15px;
+    color: rgb(19, 163, 156);
+}
